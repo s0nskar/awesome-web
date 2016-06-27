@@ -148,7 +148,12 @@
         function(data) {
           x = {};
           var regExp = /\[([^\]]+)\]\(([^)]+)\)/g;
-          console.log(data.match(regExp));
+          var blob = data.match(regExp);
+          blob.forEach(function (line){
+            var foo = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
+            x[foo[1]] = foo[2]
+          });
+          console.log(x);
         }
       )
     </script>
