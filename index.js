@@ -9,13 +9,14 @@ var App = React.createClass({
       success: function(data){
         var items = [];
         var item = {};
-        var regExp = /\[([^\]]+)\]\(([^)]+)\)/g;
+        var regExp = /\[([^\]]+)\]\(https:\/\/github\.com\/([\w\d-]+)\/([\w\d-]+)\)/g;
         var blob = data.match(regExp);
         blob.forEach(function (line){
           item = {};
-          var foo = line.match(/\[([^\]]+)\]\(([^)]+)\)/);
+          var foo = line.match(/\[([^\]]+)\]\(https:\/\/github\.com\/([\w\d-]+)\/([\w\d-]+)\)/);
           item['title'] = foo[1];
-          item['link'] = foo[2];
+          item['username'] = foo[2];
+          item['repo'] = foo[3];
           items.push(item);
         });
         console.log(items);
@@ -53,7 +54,7 @@ var Header = React.createClass({
 var CardBox = React.createClass({
   render: function() {
     var cardNodes = this.props.data.map(function(item){
-      return <Card title={item.title} link={item.link}/>
+      return <Card title={item.title} username={item.username} repo={item.repo} />
     })
     return (
       <div className="container-fluid card-container text-center">
@@ -71,7 +72,9 @@ var Card = React.createClass({
       <div className="card col-lg-2 col-md-2 col-sm-3 card col-xs-6">
         <div className="card-content">
           <h3 className="card-title">{this.props.title}</h3>
-          <a href={this.props.link}>Fork on Github</a>
+          <p>{this.props.username}</p>
+          <p>{this.props.repo}</p>
+          <a href={'https://github.com' + '/' + this.props.username + '/' + this.props.repo}>Fork on Github</a>
           <div className="cards-tags">
             <span className="tag">JS</span>
             <span className="tag">NodeJS</span>
