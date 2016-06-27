@@ -1,0 +1,66 @@
+body {
+  height: 100%;
+  width: 100%;
+  display: border-box;
+  font-family: "Roboto", sans-serif;
+  color: #CCCCCC;
+  overflow-x: hidden;
+}
+
+header {
+  display: border-box;
+  height: 100%;
+  background-color: #16193B;
+  padding: 14%
+}
+
+header h1 {
+  margin-top: 0px;
+  font-weight: 100;
+}
+
+header img {
+  width: 20%;
+  height: auto;
+  margin: 1%;
+}
+
+.underline {
+  width: 60%;
+}
+
+.card-container {
+  background-color: #35478C;
+}
+
+.card-container-heading {
+  font-weight: 100;
+}
+
+.card {
+  color: #111;
+  margin: 10px;
+  background: #eeeeee;
+	box-shadow: 3px 3px 3px #222222;
+}
+
+.card-content {
+  display: border-box;
+  padding: 5%;
+  border-radius: 0 0 10px 10px;
+}
+
+.card-title {
+  font-weight: 300;
+  margin: 0.2em;
+}
+
+.card-tags {
+  float: left;
+}
+
+.tag {
+  padding: 3px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+}
